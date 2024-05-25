@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+@import './scss/theme.scss';
+@import './scss/color-palette.scss';
+@import './scss/general';
+@import './scss/override';
+@import './scss/fonts';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  height: 100%;
+  background-color: $white;
+  font-family: $font-primary !important;
+  margin: 0;
+}
+
+* {
+  font-family: $font-primary;
+}
+
+input::placeholder {
+  color: $gray-600;
+}
+
+textarea::placeholder {
+  color: $gray-600;
+}
