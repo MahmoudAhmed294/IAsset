@@ -5,7 +5,7 @@
     <span *ngIf="addRequiredAstrict" class="astrict">*</span>
   </label>
   }
-  <div class="input-container w-100">
+  <div class="input-container w-100" [class.is-invalid]="control.touched && control.invalid">
     <div class="form-control">
       @if(leftIcon){
       <div class="left-icon" [class.is-invalid]="control.touched && control.invalid">
@@ -25,6 +25,20 @@
         [class.is-invalid]="control.touched && control.invalid"
         (change)="onChange($event)"
       />
+      @if(showPasswordIcon){
+      <button
+        class="mr-2 p-0 flex justify-center items-center"
+        type="button"
+        [class.is-invalid]="control.touched && control.invalid"
+        (click)="toggleShowPassword()"
+      >
+        @if(type === 'password'){
+        <app-icon name="visibility"></app-icon>
+        }@else{
+        <app-icon name="visibility_off"></app-icon>
+        }
+      </button>
+      }
     </div>
     <div class="invalid-feedback" *ngIf="control?.errors && (control?.dirty || control?.touched)">
       <div [ngSwitch]="getFirstError(control.errors)">

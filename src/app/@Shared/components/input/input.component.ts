@@ -25,13 +25,14 @@ export class InputComponent implements ControlValueAccessor {
   @Input() disabled = false;
   @Input() numbersOnly = false;
   @Input() readonly = false;
+  @Input() showPasswordIcon = false;
 
   @Output() selectedValue = new EventEmitter<any>();
 
   constructor(@Self() public ngControl: NgControl) {
     this.ngControl.valueAccessor = this;
   }
-  
+
   get control(): FormControl {
     return this.ngControl.control as FormControl;
   }
@@ -42,6 +43,11 @@ export class InputComponent implements ControlValueAccessor {
 
   getFirstError(errors: any): string {
     return errors ? Object.keys(errors)[0] : '';
+  }
+
+  toggleShowPassword() {
+    if (this.type === 'password') this.type = 'text';
+    else this.type = 'password';
   }
 
   writeValue(obj: any): void {}
