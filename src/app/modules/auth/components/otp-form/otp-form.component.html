@@ -13,7 +13,7 @@
       <ng-template pTemplate="input" let-token let-events="events" let-index="index">
         <input
           pInputText
-          type="text"
+          type="number"
           [maxLength]="1"
           (input)="events.input($event)"
           (keydown)="events.keydown($event)"

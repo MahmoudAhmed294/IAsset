@@ -15,6 +15,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class LoginFormComponent extends SubmitCoreForm {
   ngOnInit(): void {
     this.createForm();
+    // this.form.setErrors()
   }
 
   createForm() {

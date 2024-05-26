@@ -15,7 +15,7 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 })
 export class OtpFormComponent extends SubmitCoreForm {
   @Output() isOtpVerified = new EventEmitter<boolean>(false);
-  private _remainingTime = new BehaviorSubject<number>(60); // Adjust starting time in seconds
+  private _remainingTime = new BehaviorSubject<number>(180); // Adjust starting time in seconds
   remainingTime$ = this._remainingTime.asObservable();
 
   startCountdown() {
