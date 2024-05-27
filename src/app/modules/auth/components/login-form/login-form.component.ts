@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login-form',
@@ -13,6 +14,10 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './login-form.component.scss',
 })
 export class LoginFormComponent extends SubmitCoreForm {
+  constructor(private cookieService: CookieService) {
+    super();
+  }
+
   ngOnInit(): void {
     this.createForm();
     // this.form.setErrors()
@@ -23,5 +28,9 @@ export class LoginFormComponent extends SubmitCoreForm {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]],
     });
+  }
+  onSubmit() {
+    this.cookieService.set('access-token', '454554544');
+    this.goTo('/');
   }
 }

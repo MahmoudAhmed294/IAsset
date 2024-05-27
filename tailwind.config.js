@@ -20,7 +20,7 @@ module.exports = {
       colors: {
         black: 'var(--black)',
         'auth-bg': 'var(--auth-bg)',
-        'auth-content': 'var(--auth-content)',
+        content: 'var(--content)',
         white: 'var(--white)',
 
         gray: {

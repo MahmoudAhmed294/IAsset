@@ -78,7 +78,6 @@ export class AuthService {
 
   getToken(): string | undefined {
     const token = this.cookieService.get('access-token');
-    console.log(token);
 
     return !!token ? `Bearer ${token}` : undefined;
   }
